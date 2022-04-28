@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_odoo_sales_billing,access.odoo.sales.billing,model_odoo_sales_billing,,1,1,1,1
+
+access_odoo_sales_inventory_detail,access.odoo.sales.inventory.detail,model_odoo_sales_inventory_detail,,1,1,1,1
+
+access_odoo_sales_product_details,access.odoo.sales.productdetails,model_odoo_sales_product_details,,1,1,1,1
+
+access_odoo_sales_customer,access.odoo.sales.customer,model_odoo_sales_customer,,1,1,1,1
+access_odoo_sales_payment,access.odoo.sales.payment,model_odoo_sales_payment,,1,1,1,1

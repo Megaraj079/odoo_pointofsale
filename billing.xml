@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="odoosales_customize_form_1" model="ir.ui.view">
+		<field name="name">odoo.sales.customize.form.billing</field>
+		<field name="model">odoo.sales.billing</field>
+		<field name="arch" type="xml">
+			<form>
+					<sheet>
+					<div class="oe_button_box" name="button_box">
+						<button name="onchange_total" type="object" class="oe_stat_button" icon="fa_money">
+							<div class="o_stat_info">
+								<field name="total" class="o_stat_value"/>
+								<span class="o_stat_text">Calculate</span>
+							</div>
+						</button>
+					</div>
+					<field name ="product_image" widget="image" class="oe_avatar"/>
+						<group>
+							<group>
+								<field name="product_name"/>
+								<field name="quantity"/>
+							</group>
+						</group>
+						<group>
+							<group>
+								<field name="price"/>
+								<field name="gst"/>
+							</group>
+						</group>
+						<group>
+							<group>
+								<field name="discount"/>
+							</group>
+						</group>
+						<group>
+							<group>
+								<field name="total" on_change="onchange_total()"/>					
+							</group>
+						</group>
+						<button name='onchange_total' string='Calculate' type='object'/>
+					</sheet>		
+			</form>
+		</field>
+	</record>
+
+
+</odoo>

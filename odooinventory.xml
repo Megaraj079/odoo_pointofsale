@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+<record id="inventory_action" model="ir.actions.act_window">
+		<field name="name">Inventory</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">odoo.sales.inventory.detail</field>
+	</record>
+	
+	<record id="odoosales_inventory_form" model="ir.ui.view">
+		<field name="name">odoo.sales.inventory.form</field>
+		<field name="model">odoo.sales.inventory.detail</field>
+		<field name="arch" type="xml">
+			<form>
+			   <header>
+			   <field name="state" widget="statusbar" options="{'clickable':'1'}"/>
+			   
+			   </header>
+					<sheet>
+						<field name ="set_product_image" widget="image" class="oe_avatar"/>
+						<group>
+							<group>
+								<field name="name"/>
+								<field name="price"/>
+								<field name="quantity"/>
+								<field name="gst"/>
+							</group>
+						</group>
+					</sheet>		
+			</form>
+		</field>
+	</record>
+	
+<record id="odoosales_inventory" model="ir.ui.view">
+		<field name="name">odoo.sales.inventory.tree</field>
+		<field name="model">odoo.sales.inventory.detail</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name"/>
+				<field name="price"/>
+				<field name="quantity"/>
+				<field name="gst"/>			
+			</tree>
+		</field>
+</record>
+
+<record id="odoosales_inventory_search" model="ir.ui.view">
+    <field name="name">odoo.sales.inventory.search</field>
+    <field name="model">odoo.sales.inventory.detail</field>
+    <field name="arch" type="xml">
+      <search string="product_search">
+         <field name="name"/>
+         <field name="state"/>
+         <separator/>
+         <filter string="Godown" name="godown" domain="[('state','=','godown')]"/>
+         <searchpanel>
+           <field name="state" string="inventory status" enable_counter="1"/>
+         </searchpanel>
+      </search>
+    
+    </field>
+
+
+</record>
+
+
+	
+	
+	<menuitem id="inventory_pos_root_1"
+		name="Odoo Sales"		
+		action="inventory_action"
+		sequence="1"/>
+		
+	<menuitem id="odoosales_inventory"
+		name="Inventory"		
+		action="inventory_action"
+		parent="inventory_pos_root_1"
+		sequence="2"/>
+		
+    <menuitem id="inventory_pos_root_2"
+		name="product_history"		
+		action="inventory_action"
+		parent="inventory_pos_root_1"
+		sequence="2"/>
+	
+</odoo>

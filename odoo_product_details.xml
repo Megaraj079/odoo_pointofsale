@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+<record id="product_details_form_odoosales" model="ir.ui.view">
+		<field name="name">odoo.sales.odoo.product.details</field>
+		<field name="model">odoo.sales.product_details</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+				<button name="onchange_grand_total" type="object" string="pay"/>
+						<group>
+					<group>
+					
+							<field name="name" />	
+							<field name="grand_total"/>	 					
+							<field name="product_name_id"/>					
+						</group>
+					</group>
+				</sheet>		
+			</form>
+		</field>
+	</record>
+	
+	<record id="onlinePOS_tree_billing_customer" model="ir.ui.view">
+		<field name="name">odoo.sales.tree</field>
+		<field name="model">odoo.sales.product_details</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name"/>
+				<field name="grand_total"/>							
+				<field name="product_name_id"/>					
+			</tree>
+		</field>
+	</record>
+	
+	<record id="odoosales_product_details" model="ir.actions.act_window">
+		<field name="name">Order Management</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">odoo.sales.product_details</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	
+	<menuitem id="inventory_pos_root_3"
+		name="Billing"
+		parent="inventory_pos_root_1"
+		action="odoosales_product_details"
+		sequence="10"/>
+	
+</odoo>
+	
+
